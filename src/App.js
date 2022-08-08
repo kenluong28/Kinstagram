@@ -4,9 +4,13 @@ import * as ROUTES from './constants/routes';
 import useAuthListener from './hooks/use-auth-listener';
 import UserContext from './context/user';
 
+//import ProtectedRoute from './helpers/protected-route'; // * Need to fix *
+//import IsUserLoggedIn from './helpers/is-user-logged-in'; // * Need to fix *
+
 const Login = lazy(() => import ('./pages/login'));
 const SignUp = lazy(() => import ('./pages/sign-up'));
 const Dashboard = lazy(() => import ('./pages/dashboard'));
+const Profile = lazy(() => import ('./pages/profile'));
 const NotFound = lazy(() => import ('./pages/not-found'));
 
 export default function App() {
@@ -19,6 +23,10 @@ export default function App() {
           <Routes>
               <Route path={ROUTES.LOGIN} element={<Login />} />
               <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
+              <Route path={ROUTES.PROFILE} element={<Profile />} />
+              {/* <Route element={<ProtectedRoute />}>
+                <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
+              </Route> */}
               <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
               <Route path='*' element={<NotFound />} />
           </Routes>
@@ -27,3 +35,5 @@ export default function App() {
     </UserContext.Provider>
   )
 }
+
+

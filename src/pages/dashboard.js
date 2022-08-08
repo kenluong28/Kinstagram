@@ -3,7 +3,7 @@ import Header from "../components/header";
 import Sidebar from "../components/sidebar";
 import Timeline from "../components/timeline";
 
-export default function Dashboard() {
+export default function Dashboard({ user }) {
     useEffect(() => {
         document.title = 'Instagram';
     }, []);
@@ -17,6 +17,6 @@ export default function Dashboard() {
             </div>
 
         </div>
-    )
+    );
 
 }

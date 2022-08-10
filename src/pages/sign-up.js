@@ -35,7 +35,8 @@ export default function SignUp() {
                     username: username.toLowerCase(),
                     fullName,
                     emailAddress: emailAddress.toLowerCase(),
-                    following: [],
+                    following: ['2'],
+                    followers: [],
                     dateCreated: Date.now()
                 });
 
@@ -47,6 +48,7 @@ export default function SignUp() {
                 setError(error.message);
             }
         } else {
+            setUsername('');
             setError('That username is already taken, please try another.');
         }
     };
@@ -80,7 +82,7 @@ export default function SignUp() {
                         <input
                             aria-label='Enter your full name'
                             type='text'
-                            placeholder='Full Name'
+                            placeholder='Full name'
                             className='text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2'
                             onChange={({ target }) => setFullname(target.value)}
                             value={fullName}

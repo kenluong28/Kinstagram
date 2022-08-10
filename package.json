@@ -20,7 +20,7 @@
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/app.css --watch",
     "react-scripts:start": "sleep 5 && react-scripts start",
     "start": "DISABLE_ESLINT_PLUGIN=true run-p watch:css react-scripts:start",
-    "build": "DISABLE_ESLINT_PLUGIN=true run-s build:css react-scripts:build",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "DISABLE_ESLINT_PLUGIN=true react-scripts test",
     "eject": "react-scripts eject"
   },

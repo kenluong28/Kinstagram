@@ -1,14 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Outlet, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 
-// export default function ProtectedRoute({ user }) {
-//   if (!user) {
-//     return <Navigate to={{ pathname: ROUTES.LOGIN }} />;
-//   }
-//   return <Outlet />;
-// }
+export default function ProtectedRoute({ user, children }) {
+    if (user) {
+      return React.cloneElement(children, {user});
+    }
+
+    if (!user) {
+    return <Navigate to={{ pathname: ROUTES.LOGIN }} />;
+    }
+
+    return null;
+}
 
 // let auth = { token: true };
   // return auth.token ? (
@@ -18,10 +23,10 @@ import * as ROUTES from "../constants/routes";
   // );
 
 
-// ProtectedRoute.propTypes = {
-//   user: PropTypes.object,
-//   children: PropTypes.object,
-// };
+ProtectedRoute.propTypes = {
+  user: PropTypes.object,
+  children: PropTypes.object.isRequired,
+};
 
 // { user, children, ...rest }
 // <Route
